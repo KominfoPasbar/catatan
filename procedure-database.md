@@ -1,7 +1,7 @@
 # CREATE PROCEDURE
 
-```
 ## PROCEDURE PS_ABSEN_MASUK
+```
 CREATE PROCEDURE SP_ABSEN_MASUK(
 	IN tgl_sekarang date,
 	IN id_user int,
