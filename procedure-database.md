@@ -2,6 +2,8 @@
 
 ### PROCEDURE PS_ABSEN_MASUK
 ```
+DELIMITER $$
+
 CREATE PROCEDURE SP_ABSEN_MASUK(
 	IN tgl_sekarang date,
 	IN id_user int,
@@ -22,7 +24,10 @@ BEGIN
     ELSE
     SET output = false;
     END IF; 
-END
+END$$
+DELIMITER ;
+
+
 ```
 
 ### PROCEDURE PS_ABSEN_PULANG
