@@ -15,7 +15,7 @@ CREATE PROCEDURE SP_ABSEN_MASUK(
 ) 
 BEGIN
 	SET @eventIDOut = NULL;
-	IF EXISTS(SELECT `id_user`, `tgl_absen` FROM `absen5` WHERE `tgl_absen`=@tgl_sekarang and `id_user`=@id_user) THEN
+	IF EXISTS(SELECT `id_user`, `tgl_absen` FROM `absen5` WHERE `tgl_absen`=@p0 and `id_user`=@p1) THEN
     INSERT INTO absen5 (`id_user`,`id_admin_instansi`,`username`,`nama_lengkap`,`instansi`,`SSID`,`BSSID`,`ip_address`,`tgl_absen`,`file`,`keterangan`,`status`) VALUES (@p1,@p2,@p3,@p4,@p5,@p6,@p7,'',@p0,'','',1);
     SET @eventIDOut = last_insert_id();
     SET output = true;
