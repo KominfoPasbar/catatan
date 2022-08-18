@@ -79,19 +79,35 @@ DELIMITER ;
 
 ### PROCEDURE PS_AUTH
 ```
-DELIMITER $$
+DELIMITER
+    $$
 CREATE PROCEDURE PS_AUTH(
-    IN p_tgl_sekarang date,
-    IN p_id_user int,
-    IN p_device_id int,
-    IN p_username VARCHAR(30),
-    IN p_versi_app VARCHAR(100),
-) 
+    IN p_tgl_sekarang DATE,
+    IN p_id_user INT,
+    IN p_device_id INT,
+    IN p_username VARCHAR(100),
+    IN p_versi_app VARCHAR(100)
+)
 BEGIN
-	INSERT INTO auth (`id_user`, `device_id`, `username`, `versi_app`, `timestamp`) VALUES (p_id_user,'p_device_id','p_username','p_versi_app', CURRENT_TIMESTAMP);
-END$$
-DELIMITER ;
+    INSERT INTO auth(
+        `id_user`,
+        `device_id`,
+        `username`,
+        `versi_app`,
+        `timestamp`
+    )
+VALUES(
+    p_id_user,
+    p_device_id,
+    p_username,
+    p_versi_app,
+    CURRENT_TIMESTAMP
+) ; END $$
+DELIMITER
+    ;
 ```
+
+
 
 
 
