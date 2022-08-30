@@ -123,7 +123,61 @@ DELIMITER
     ;
 ```
 
+## PS_RIWAYAT
 
+```
+DELIMITER
+    $$
+CREATE PROCEDURE PS_RIWAYAT(
+    IN p_tgl_sekarang DATE,
+    IN p_id_user INT,
+    IN p_device_id INT,
+    IN p_username VARCHAR(100),
+    IN p_versi_app VARCHAR(100),
+    OUT output INT
+)
+BEGIN
+    SET
+        output = NULL ; IF EXISTS(
+        SELECT
+            *
+        FROM
+            absen5
+        WHERE
+            EXISTS(
+            SELECT
+                *
+            FROM
+                approval_ijin
+            WHERE
+                DATE(absen5.timestamp_masuk) = DATE(approval_ijin.timestamp) AND approval_ijin.status_approval = '1'
+        ) OR absen5.status = '1' AND approval_ijin.id_user = p_id_user
+    ORDER BY
+        tgl_absen ASC FOR UPDATE
+    ) THEN
+SET
+    output = FALSE ; ELSE
+SET
+    output = TRUE ;
+INSERT INTO auth(
+    `id_user`,
+    `device_id`,
+    `username`,
+    `versi_app`,
+    `timestamp`
+)
+VALUES(
+    p_id_user,
+    p_device_id,
+    p_username,
+    p_versi_app,
+    CURRENT_TIMESTAMP
+) ;
+END IF ;
+END
+DELIMITER
+    ;
+```
 
 
 
