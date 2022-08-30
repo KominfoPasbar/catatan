@@ -125,6 +125,15 @@ DELIMITER
 
 ## PS_RIWAYAT
 
+### SQL QUERY
+```
+SELECT id_user,timestamp_masuk,timestamp_pulang,status,tgl_absen,status_approval from absen5 WHERE  EXISTS (SELECT id_user,timestamp,status_approval,tgl_pengajuan FROM approval_ijin 
+WHERE date(approval_ijin.timestamp) = date(absen5.timestamp_masuk)  and approval_ijin.status_approval = '2' and approval_ijin.tgl_pengajuan = absen5.tgl_group 
+and  approval_ijin.id_user = absen5.id_user and absen5.id_user='6327'  and MONTH(absen5.tgl_absen)= MONTH(NOW())) or ( absen5.id_user = '6327' and absen5.status='1'  and absen5.status_approval <> '2' and MONTH(absen5.tgl_absen)= MONTH(NOW())) 
+order by tgl_absen ASC FOR UPDATE
+```
+
+### PROSEDURE Riwayat
 ```
 DELIMITER
     $$
