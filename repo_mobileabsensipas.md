@@ -6,7 +6,7 @@ cd /path/to/your/repo
 ```
 Step 2: Configure your local repository to push to the cPanel-hosted repository:
 ```
-git remote add origin ssh://mobileabsensipas@mobileabsensi.pasamanbaratkab.go.id/home/mobileabsensipas/public_html
+git remote add origin ssh://mobileabsensipas@mobileabsensi.pasamanbaratkab.go.id/home/mobileabsensipas/repository
 git push -u origin master
 ```
 
@@ -14,7 +14,7 @@ To start a new project …
 Step 1: Clone the cPanel-hosted repository to your local computer and navigate to its directory:
 
 ```
-git clone ssh://mobileabsensipas@mobileabsensi.pasamanbaratkab.go.id/home/mobileabsensipas/public_html
+git clone ssh://mobileabsensipas@mobileabsensi.pasamanbaratkab.go.id/home/mobileabsensipas/repository
 cd public_html
 ```
 Step 2: Create a README file:
