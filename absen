@@ -1,0 +1,13 @@
+$id_user = $_GET['id_user'];
+$username = $_GET['username'];
+$nama_lengkap = $_GET['nama_lengkap'];
+$instansi = $_GET['instansi'];
+$SSID = $_GET['SSID'];
+$BSSID = $_GET['BSSID'];
+$ip_add = $_GET['ip_address'];
+$jam_masuk = $_GET['jam_masuk'];
+// $jam_pulang = $_POST['jam_pulang'];
+//$waktu_kerja = $_POST['waktu_kerja'];
+$tgl_absen = $_GET['tgl_absen'];
+$id_admin_instansi = $_GET['id_admin_instansi'];
+$tgl_sekarang = date('Y-m-d');
